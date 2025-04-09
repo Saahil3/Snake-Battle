@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 5px #4f46e5, 0 0 10px #4f46e5, 0 0 15px #4f46e5;
+  }
+  50% {
+    box-shadow: 0 0 10px #4f46e5, 0 0 20px #4f46e5, 0 0 30px #4f46e5;
+  }
+  100% {
+    box-shadow: 0 0 5px #4f46e5, 0 0 10px #4f46e5, 0 0 15px #4f46e5;
+  }
+}
+
+.neon-grid {
+  animation: neonPulse 2s infinite;
+}
+
+.grid-cell {
+  position: relative;
+}
+
+.grid-cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  pointer-events: none;
+}
+
+.grid-cell:hover::before {
+  border-color: rgba(79, 70, 229, 0.3);
+}
